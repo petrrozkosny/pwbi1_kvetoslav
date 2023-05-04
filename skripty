@@ -117,3 +117,8 @@ ___________________________________________________
 13 suma srazek predchozi rok = 
 
 SUMX(FILTER(ALL(data),data[rok] = MAX(data[rok])-1 && data[mesic] = MAX(data[mesic])),data[srazky])
+
+______________________________________________
+
+15 maximalni srazky prvni den mesice = 
+MAXX(FILTER(data,data[datum] =  MIN(data[datum])),data[srazky])
