@@ -138,3 +138,13 @@ _________________________________________________________
 
 16 pocet datumu max_teplota > 30 = 
 COUNTX(FILTER(data,data[maximalni_teplota] > 30),data[datum])
+________________________________________________________
+
+18 prvni datum roku = MIN(data[datum])
+__________________________________________________________
+19 prvni datum prvni mesic = 
+MINX(FILTER(data,data[mesic] = 1),data[datum])
+__________________________________________________________
+20 pocet tropickych datumu = 
+-- pocet datumu kdy maximalni_teplota > 30
+COUNTX(FILTER(data, data[maximalni_teplota]  > 30),data[datum])
