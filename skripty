@@ -148,3 +148,21 @@ __________________________________________________________
 20 pocet tropickych datumu = 
 -- pocet datumu kdy maximalni_teplota > 30
 COUNTX(FILTER(data, data[maximalni_teplota]  > 30),data[datum])
+
+_________________________________
+
+21 prvni datum predchozi rok = 
+MINX(FILTER(ALL(data),data[rok]=SELECTEDVALUE(data[rok]) - 1),data[datum])
+
+______________________________________________
+22 max teplota roku = MAX(data[maximalni_teplota])
+_______________________________________________
+23 pocet vyskytu maximalni teploty = 
+COUNTX(FILTER(data,data[maximalni_teplota] = MAX(data[maximalni_teplota])),data[datum])
+_____________________________________________
+
+24 datumy max teploty = 
+MINX(
+    FILTER(data,data[maximalni_teplota] = MAX(data[maximalni_teplota])),data[datum])
+
+
