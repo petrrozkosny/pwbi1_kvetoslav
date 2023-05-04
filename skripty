@@ -122,3 +122,8 @@ ______________________________________________
 
 15 maximalni srazky prvni den mesice = 
 MAXX(FILTER(data,data[datum] =  MIN(data[datum])),data[srazky])
+
+_________________________________________________________
+
+16 pocet datumu max_teplota > 30 = 
+COUNTX(FILTER(data,data[maximalni_teplota] > 30),data[datum])
