@@ -80,3 +80,13 @@ SUM(data[srazky])
 -
 -- suma srazek v minimalnim roce
 SUMX(FILTER(ALL(data), data[rok] = MINX(ALL(data),data[rok])),data[srazky])
+
+__________________________________
+
+09 podil srazek ruzyne = 
+-- jak se suma srazek v ruzyni v danem roce podilela na celkovych srazkach v danem roce
+
+-- srazky v ruzyni
+SUMX(FILTER(data,data[lokalita]="RUZYNE"),data[srazky])
+/
+SUM(data[srazky])
