@@ -120,6 +120,17 @@ SUMX(FILTER(ALL(data),data[rok] = MAX(data[rok])-1 && data[mesic] = MAX(data[mes
 
 ______________________________________________
 
+14 suma srazek kumulativne ruzyne = 
+-- suma srazek v danem roce, danem a predchozich mesicich v lokalite ruzyne
+
+SUMX(FILTER(
+    ALL(data)
+,data[rok] = MAX(data[rok])
+ && data[mesic] <= MAX(data[mesic])
+ && data[lokalita] = "RUZYNE"),data[srazky])
+
+_____________________________________________
+
 15 maximalni srazky prvni den mesice = 
 MAXX(FILTER(data,data[datum] =  MIN(data[datum])),data[srazky])
 
