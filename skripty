@@ -97,3 +97,12 @@ ________________________________________
 
 -- suma srazek za dany a predchozi mesice daneho roku
 SUMX(FILTER(ALL(data),data[rok] = MAX(data[rok]) && data[mesic] <= MAX(data[mesic])),data[srazky])
+
+_______________________________
+
+11 suma srazek ruzyne = 
+-- suma srazek v danem roce, mesici, lokalita Ruzyne
+
+SUMX(
+    FILTER(data,data[lokalita] = "RUZYNE"),
+data[srazky])
