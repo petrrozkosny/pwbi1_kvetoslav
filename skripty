@@ -55,3 +55,11 @@ SUMX(
 data[srazky])
 
 _______________________________
+
+08 srazky vs srazky minimalni rok = 
+-- suma srazek v danem roce
+SUM(data[srazky])
+-- MÍNUS
+-
+-- suma srazek v minimalnim roce
+SUMX(FILTER(ALL(data), data[rok] = MINX(ALL(data),data[rok])),data[srazky])
