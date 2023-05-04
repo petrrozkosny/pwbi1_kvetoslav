@@ -111,3 +111,9 @@ ____________________________________________
 12 pocet destivych dnu ruzyne = 
 -- pocet dnu v danem roce, mesici kdy v lokalite ruzyne srazky > 0
 COUNTX(FILTER(data,data[lokalita] = "RUZYNE" && data[srazky] > 0),data[datum])
+
+___________________________________________________
+
+13 suma srazek predchozi rok = 
+
+SUMX(FILTER(ALL(data),data[rok] = MAX(data[rok])-1 && data[mesic] = MAX(data[mesic])),data[srazky])
