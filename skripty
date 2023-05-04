@@ -106,3 +106,8 @@ _______________________________
 SUMX(
     FILTER(data,data[lokalita] = "RUZYNE"),
 data[srazky])
+____________________________________________
+
+12 pocet destivych dnu ruzyne = 
+-- pocet dnu v danem roce, mesici kdy v lokalite ruzyne srazky > 0
+COUNTX(FILTER(data,data[lokalita] = "RUZYNE" && data[srazky] > 0),data[datum])
