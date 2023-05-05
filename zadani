@@ -1,0 +1,12 @@
+27 minimalni datum: Minimální datum v daném měsíci a roce
+28 minimalni datum rok: Minimální datum v daném roce bez ohledu na měsíc
+29 minimalni datum predchozi rok: Minimální datum v daném měsíci předchozího roku
+___________________________________________________________
+ 
+30 kumulativni srazky: Kumulativní suma srážek v daném roce
+31 kumulativni srazky predchozi rok: Kumulativní suma srážek v předchozím roce
+32 srazky vs zacatek roku: suma srážek v daném měsíci a roce
+MÍNUS suma srážek v měsíci 1 daného roku
+33 srazky vs minimalni rok: suma srážek v daném měsíci a roce MÍNUS
+suma srážek stejného měsíce minimálního roku
+___________________________________________________________
