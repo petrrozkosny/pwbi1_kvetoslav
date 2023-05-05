@@ -164,5 +164,44 @@ _____________________________________________
 24 datumy max teploty = 
 MINX(
     FILTER(data,data[maximalni_teplota] = MAX(data[maximalni_teplota])),data[datum])
+________________________
 
+27 minimalni datum = MIN(data[datum])
+______________________________
 
+28 minimalni datum rok = 
+MINX(FILTER(ALL(data),data[rok] = MIN(data[rok])),data[datum])
+___________________________
+
+29 minimalni datum daneho mesice predchozi rok = 
+
+MINX(FILTER(ALL(data),data[rok] = SELECTEDVALUE(data[rok]) - 1 
+&& data[mesic] = SELECTEDVALUE(data[mesic])),data[datum]) 
+
+_______________________
+
+30 kumulativni srazky = 
+SUMX(FILTER(ALL(data),data[rok] = MAX(data[rok]) && data[mesic] <= MAX(data[mesic])),data[srazky])
+________________________________
+
+31 kumulativni srazky predchozi rok = 
+SUMX(FILTER(ALL(data),data[rok] = MAX(data[rok])-1 && data[mesic] <= MAX(data[mesic])),data[srazky])
+__________________________________
+
+32 suma srazek vs zacatek roku = 
+
+VAR suma_srazek = SUM(data[srazky])
+VAR suma_srazek_leden = SUMX(FILTER(ALL(data),data[rok] = SELECTEDVALUE(data[rok]) && data[mesic] = 1),data[srazky])
+
+return suma_srazek - suma_srazek_leden
+
+__________________________________
+
+33 porovnani srazek = 
+
+-- suma srazek v danem roce a mesici 
+VAR srazky = SUM(data[srazky])
+VAR min_rok = MINX(ALL(data),data[rok])
+VAR srazky_min_rok = SUMX(FILTER(ALL(data),data[rok] = min_rok && data[mesic] = SELECTEDVALUE(data[mesic])),data[srazky])
+
+return srazky - srazky_min_rok
