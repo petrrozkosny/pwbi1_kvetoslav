@@ -205,3 +205,15 @@ VAR min_rok = MINX(ALL(data),data[rok])
 VAR srazky_min_rok = SUMX(FILTER(ALL(data),data[rok] = min_rok && data[mesic] = SELECTEDVALUE(data[mesic])),data[srazky])
 
 return srazky - srazky_min_rok
+
+____________________________________________
+
+37 kontrola teploty = 
+
+IF(
+    -- maximalni teplota v danem roce a lokalite
+    MAX(data[maximalni_teplota])
+    =
+    -- maximalni teplota v danem roce napric lokalitami
+    MAXX(FILTER(ALL(data), data[rok] IN VALUES(data[rok])),data[maximalni_teplota]),
+    "TOMATO")
